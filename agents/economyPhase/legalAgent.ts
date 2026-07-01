@@ -1,11 +1,7 @@
 import { LlmAgent } from '@google/adk';
 import { z } from 'zod';
-import { legalInstruction } from '../prompts/instructions.js';
+import {legalInstruction} from "../../prompts/instructions.js";
 
-/**
- * Legal Analysis Result
- * Оцінка юридичних ризиків бізнес-ідеї.
- */
 export const LegalResultSchema = z.object({
     legalRisks: z.array(z.string()),
 
@@ -35,5 +31,5 @@ Evaluates legal constraints, compliance requirements, and regulatory risks for a
 
     instruction: legalInstruction,
 
-    // outputSchema: LegalResultSchema
+    outputSchema: LegalResultSchema
 });

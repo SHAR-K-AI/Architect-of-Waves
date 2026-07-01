@@ -1,10 +1,6 @@
 import { LlmAgent } from '@google/adk';
 import { z } from 'zod';
 
-/**
- * Validation Result
- * Єдина точка оцінки ідеї (Critic + Persona summary).
- */
 export const ValidationSchema = z.object({
     score: z.number(),
     verdict: z.enum(['pass', 'fail', 'refine']),
@@ -14,10 +10,6 @@ export const ValidationSchema = z.object({
     summary: z.string()
 });
 
-/**
- * Validation Agent
- * Об'єднує критика + persona в один фінальний verdict
- */
 export const validationAgent = new LlmAgent({
     name: 'validation_agent',
 
@@ -49,5 +41,5 @@ Your job:
 Be strict. Do not be optimistic.
 `,
 
-    // outputSchema: ValidationSchema
+    outputSchema: ValidationSchema
 });

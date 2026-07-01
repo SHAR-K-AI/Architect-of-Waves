@@ -1,9 +1,5 @@
 import { z } from 'zod';
 
-/**
- * Результат Idea Critic.
- * Жорсткий аналіз логіки ідеї.
- */
 export const IdeaCriticResultSchema = z.object({
     score: z.number(),
 
@@ -18,10 +14,6 @@ export const IdeaCriticResultSchema = z.object({
 
 export type IdeaCriticResult = z.infer<typeof IdeaCriticResultSchema>;
 
-/**
- * Результат Persona Simulator.
- * Симуляція реального клієнта.
- */
 export const PersonaSimulatorResultSchema = z.object({
     wouldBuy: z.boolean(),
 
@@ -36,9 +28,6 @@ export const PersonaSimulatorResultSchema = z.object({
 
 export type PersonaSimulatorResult = z.infer<typeof PersonaSimulatorResultSchema>;
 
-/**
- * Агрегований результат валідації.
- */
 export const ValidationAggregateSchema = z.object({
     critic: IdeaCriticResultSchema,
 
@@ -55,9 +44,6 @@ export const ValidationAggregateSchema = z.object({
 
 export type ValidationAggregate = z.infer<typeof ValidationAggregateSchema>;
 
-/**
- * Рішення для циклу (loop controller).
- */
 export const ValidationDecisionSchema = z.object({
     shouldContinue: z.boolean(),
 

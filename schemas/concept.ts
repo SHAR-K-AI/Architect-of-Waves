@@ -1,8 +1,5 @@
 import { z } from 'zod';
 
-/**
- * Розширена ринкова аналітика від Market Researcher.
- */
 export const MarketInsightsSchema = z.object({
     marketSize: z.string().describe('Estimated market size (TAM/SAM/SOM if possible).'),
 
@@ -21,9 +18,6 @@ export const MarketInsightsSchema = z.object({
 
 export type MarketInsights = z.infer<typeof MarketInsightsSchema>;
 
-/**
- * Gap Analyst результат.
- */
 export const MarketGapSchema = z.object({
     painPoints: z.array(z.string()),
 
@@ -34,9 +28,6 @@ export const MarketGapSchema = z.object({
 
 export type MarketGap = z.infer<typeof MarketGapSchema>;
 
-/**
- * Об'єднаний результат Generation Phase.
- */
 export const GeneratedConceptBundleSchema = z.object({
     ideaTitle: z.string(),
 
@@ -47,9 +38,6 @@ export const GeneratedConceptBundleSchema = z.object({
 
 export type GeneratedConceptBundle = z.infer<typeof GeneratedConceptBundleSchema>;
 
-/**
- * Результат після культурної адаптації.
- */
 export const CulturalizedConceptSchema = z.object({
     baseIdeaTitle: z.string(),
 
@@ -66,9 +54,6 @@ export const CulturalizedConceptSchema = z.object({
 
 export type CulturalizedConcept = z.infer<typeof CulturalizedConceptSchema>;
 
-/**
- * Внутрішня оцінка ідеї перед фінальною валідацією.
- */
 export const PreValidationSnapshotSchema = z.object({
     clarityScore: z.number(),
 

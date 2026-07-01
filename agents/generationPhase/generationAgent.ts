@@ -1,9 +1,6 @@
 import {LlmAgent} from '@google/adk';
 import {z} from 'zod';
 
-/**
- * Business Idea Generation Result
- */
 export const GenerationSchema = z.object({
     idea: z.string(),
     problem: z.string(),
@@ -13,12 +10,8 @@ export const GenerationSchema = z.object({
     assumptions: z.array(z.string())
 });
 
-/**
- * Generation Agent
- * Створює первинну бізнес-ідею на основі input (budget/region/direction)
- */
 export const generationAgent = new LlmAgent({
-    name: 'market_researcher', // важливо: може бути стартовим агентом
+    name: 'generation',
 
     model: 'gemini-2.5-flash',
 
@@ -41,5 +34,5 @@ Your job:
 4. Do NOT evaluate — only generate
 `,
 
-    // outputSchema: GenerationSchema
+    outputSchema: GenerationSchema
 });

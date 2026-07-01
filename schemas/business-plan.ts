@@ -1,9 +1,5 @@
 import { z } from 'zod';
 
-/**
- * Структура фінального бізнес-плану.
- * Це те, що отримує користувач після успішного циклу валідації.
- */
 export const BusinessPlanSchema = z.object({
     meta: z.object({
         title: z.string(),

@@ -1,11 +1,7 @@
 import { LlmAgent } from '@google/adk';
 import { z } from 'zod';
-import { economicInstruction } from '../prompts/instructions.js';
+import {economicInstruction} from "../../prompts/instructions.js";
 
-/**
- * Economic Model Result
- * Юніт-економіка бізнес-ідеї.
- */
 export const EconomicModelSchema = z.object({
     cac: z.string().describe('Customer Acquisition Cost'),
 
@@ -22,10 +18,6 @@ export const EconomicModelSchema = z.object({
     notes: z.array(z.string())
 });
 
-/**
- * Economic Modeler Agent
- * Розраховує unit-економіку, CAC/LTV та ROI.
- */
 export const economyAgent = new LlmAgent({
     name: 'economic_modeler',
 
@@ -37,5 +29,5 @@ Builds unit economics and evaluates profitability potential of a business idea.
 
     instruction: economicInstruction,
 
-    // outputSchema: EconomicModelSchema
+    outputSchema: EconomicModelSchema
 });

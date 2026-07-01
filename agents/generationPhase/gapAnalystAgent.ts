@@ -1,11 +1,7 @@
 import { LlmAgent } from '@google/adk';
-import { MarketGapSchema } from '../schemas/concept.js';
-import { gapAnalystInstruction } from '../prompts/instructions.js';
+import {MarketGapSchema} from "../../schemas/concept.js";
+import {gapAnalystInstruction} from "../../prompts/instructions.js";
 
-/**
- * Gap Analyst Agent
- * Виявляє незадоволені потреби та ринкові "дірки".
- */
 export const gapAnalystAgent = new LlmAgent({
     name: 'gap_analyst',
 
@@ -17,5 +13,5 @@ Finds unmet needs, pain points, and underserved market segments.
 
     instruction: gapAnalystInstruction,
 
-    // outputSchema: MarketGapSchema
+    outputSchema: MarketGapSchema
 });

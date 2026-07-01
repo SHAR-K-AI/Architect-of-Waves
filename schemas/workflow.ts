@@ -1,12 +1,7 @@
 import { z } from 'zod';
 
-/**
- * Початкові дані, які вводить користувач.
- */
 export const WorkflowInputSchema = z.object({
-    budget: z
-        .number()
-        .positive()
+    budget: z.number().min(100)
         .describe('Maximum available startup budget.'),
 
     region: z
@@ -22,9 +17,6 @@ export const WorkflowInputSchema = z.object({
 
 export type WorkflowInput = z.infer<typeof WorkflowInputSchema>;
 
-/**
- * Концепт, який формується після Generation Phase.
- */
 export const BusinessConceptSchema = z.object({
     title: z.string(),
 
@@ -41,9 +33,6 @@ export const BusinessConceptSchema = z.object({
 
 export type BusinessConcept = z.infer<typeof BusinessConceptSchema>;
 
-/**
- * Концепт після Cultural Strategist.
- */
 export const LocalizedConceptSchema = BusinessConceptSchema.extend({
     culturalFit: z.number(),
 
@@ -54,9 +43,6 @@ export const LocalizedConceptSchema = BusinessConceptSchema.extend({
 
 export type LocalizedConcept = z.infer<typeof LocalizedConceptSchema>;
 
-/**
- * Результат перевірки ідеї.
- */
 export const ValidationSchema = z.object({
     score: z.number(),
 
@@ -69,9 +55,6 @@ export const ValidationSchema = z.object({
 
 export type ValidationResult = z.infer<typeof ValidationSchema>;
 
-/**
- * Фінальний бізнес-план.
- */
 export const BusinessPlanSchema = z.object({
     executiveSummary: z.string(),
 
@@ -88,14 +71,10 @@ export const BusinessPlanSchema = z.object({
 
 export type BusinessPlan = z.infer<typeof BusinessPlanSchema>;
 
-/**
- * Глобальний стан (Workflow State),
- * який передається між агентами.
- */
 export const WorkflowStateSchema = z.object({
     input: WorkflowInputSchema,
 
-    iteration: z.number().default(1),
+    iteration: z.number().min(1).default(1),
 
     concept: BusinessConceptSchema.optional(),
 
