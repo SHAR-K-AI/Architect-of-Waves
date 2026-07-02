@@ -1,6 +1,7 @@
 import { LlmAgent } from '@google/adk';
 import { z } from 'zod';
 import {economicInstruction} from "../../prompts/instructions.js";
+import {COMMON_CONFIG} from "../../constants/index.js";
 
 export const EconomicModelSchema = z.object({
     cac: z.string().describe('Customer Acquisition Cost'),
@@ -19,9 +20,8 @@ export const EconomicModelSchema = z.object({
 });
 
 export const economyAgent = new LlmAgent({
+    ...COMMON_CONFIG,
     name: 'economic_modeler',
-
-    model: 'gemini-2.5-flash',
 
     description: `
 Builds unit economics and evaluates profitability potential of a business idea.

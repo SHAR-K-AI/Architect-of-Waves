@@ -1,5 +1,6 @@
 import { LlmAgent } from '@google/adk';
 import { z } from 'zod';
+import {COMMON_CONFIG} from "../../constants/index.js";
 
 export const ValidationSchema = z.object({
     score: z.number(),
@@ -11,10 +12,8 @@ export const ValidationSchema = z.object({
 });
 
 export const validationAgent = new LlmAgent({
+    ...COMMON_CONFIG,
     name: 'validation_agent',
-
-    model: 'gemini-2.5-flash',
-
     description: `
 Evaluates a business idea using both logical critique and user persona simulation.
 Produces final decision: pass / fail / refine.
@@ -40,6 +39,5 @@ Your job:
 
 Be strict. Do not be optimistic.
 `,
-
     outputSchema: ValidationSchema
 });

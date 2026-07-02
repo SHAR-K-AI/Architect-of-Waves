@@ -1,12 +1,11 @@
 import { LlmAgent } from '@google/adk';
 import { personaInstruction } from "../../prompts/instructions.js";
 import {PersonaSimulatorResultSchema} from "../../schemas/validation.js";
+import {COMMON_CONFIG} from "../../constants/index.js";
 
 export const personaAgent = new LlmAgent({
+    ...COMMON_CONFIG,
     name: 'persona_simulator',
-
-    model: 'gemini-2.5-flash',
-
     description: `
 Simulates real user behavior and evaluates purchase intent for the idea.
   `.trim(),

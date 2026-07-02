@@ -13,5 +13,6 @@ Analyzes market size, competitors, and demand trends for a given business idea.
 
     instruction: marketResearcherInstruction,
 
-    outputSchema: MarketInsightsSchema
+    outputSchema: MarketInsightsSchema,
+
 });

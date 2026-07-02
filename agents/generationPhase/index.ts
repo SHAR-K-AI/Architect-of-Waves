@@ -2,11 +2,11 @@ import {LlmAgent} from "@google/adk";
 import {generationAgent} from "./generationAgent.js";
 import {gapAnalystAgent} from "./gapAnalystAgent.js";
 import {marketResearcherAgent} from "./marketResearcherAgent.js";
+import {COMMON_CONFIG} from "../../constants/index.js";
 
 export const generationPhase = new LlmAgent({
+    ...COMMON_CONFIG,
     name: 'generation_phase',
-
-    model: 'gemini-2.5-flash',
 
     instruction: `
 Execute ALL subAgents in order.
@@ -15,7 +15,6 @@ Execute ALL subAgents in order.
 2. marketResearcherAgent
 3. gapAnalystAgent
 `,
-
     subAgents: [
         generationAgent,
         marketResearcherAgent,

@@ -1,13 +1,13 @@
-import { LlmAgent } from "@google/adk";
+import {LlmAgent} from "@google/adk";
 import {finalizationAgent} from "./finalizationAgent.js";
+import {COMMON_CONFIG} from "../../constants/index.js";
 
 export const finalizationPhase = new LlmAgent({
+    ...COMMON_CONFIG,
     name: "finalization_phase",
-    model: "gemini-2.5-flash",
 
     instruction: `
 Finalize validated business idea and prepare output.
-`,
-
-    subAgents: [finalizationAgent],
+`
+    , subAgents: [finalizationAgent],
 });

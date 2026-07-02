@@ -1,11 +1,12 @@
 import { LlmAgent } from '@google/adk';
 import {MarketGapSchema} from "../../schemas/concept.js";
 import {gapAnalystInstruction} from "../../prompts/instructions.js";
+import {COMMON_CONFIG} from "../../constants/index.js";
 
 export const gapAnalystAgent = new LlmAgent({
+    ...COMMON_CONFIG,
     name: 'gap_analyst',
 
-    model: 'gemini-2.5-flash',
 
     description: `
 Finds unmet needs, pain points, and underserved market segments.

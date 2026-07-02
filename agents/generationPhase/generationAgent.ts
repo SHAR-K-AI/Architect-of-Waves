@@ -1,5 +1,6 @@
 import {LlmAgent} from '@google/adk';
 import {z} from 'zod';
+import {COMMON_CONFIG} from "../../constants/index.js";
 
 export const GenerationSchema = z.object({
     idea: z.string(),
@@ -11,9 +12,8 @@ export const GenerationSchema = z.object({
 });
 
 export const generationAgent = new LlmAgent({
+    ...COMMON_CONFIG,
     name: 'generation',
-
-    model: 'gemini-2.5-flash',
 
     description: `
 Generates initial business ideas based on constraints like budget, region and direction.

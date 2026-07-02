@@ -1,11 +1,11 @@
 import { LlmAgent } from '@google/adk';
 import {BusinessConceptSchema} from "../../schemas/workflow.js";
 import {refinementInstruction} from "../../prompts/instructions.js";
+import {COMMON_CONFIG} from "../../constants/index.js";
 
 export const refinementAgent = new LlmAgent({
+    ...COMMON_CONFIG,
     name: 'refinement_agent',
-
-    model: 'gemini-2.5-flash',
 
     description: `
 Improves business ideas based on validation feedback without changing core direction.

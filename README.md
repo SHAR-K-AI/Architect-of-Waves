@@ -1,14 +1,18 @@
-Architect-of-Waves
+# Architect-of-Waves
 
-Multi-Agent System for Iterative Business Idea Validation and Actionable Strategic Planning
+<img src="/public/images/shark-ai.png" alt="Architect-of-Waves" width="800"/>
 
-Overview
+## Multi-Agent System for Iterative Business Idea Validation and Actionable Strategic Planning
+
+<img src="/public/images/app-schema.png" alt="Multi-Agent System for Iterative Business Idea Validation and Actionable Strategic Planning"/>
+
+### Overview
 
 Architect-of-Waves is a multi-agent orchestration system built on Google ADK that transforms raw business ideas into validated, economically grounded, and execution-ready strategic plans.
 
 Instead of relying on a single LLM, the system decomposes reasoning into specialized agents that collaboratively simulate a structured venture-building pipeline.
 
-Problem
+### Problem
 
 Turning ideas into viable businesses is difficult due to:
 
@@ -18,7 +22,7 @@ Fragmented market and legal analysis
 Absence of iterative refinement loops
 Weak economic grounding of AI-generated ideas
 
-Solution
+### Solution
 
 Architect-of-Waves introduces a deterministic multi-agent pipeline that ensures every idea passes through structured evaluation stages before reaching final output.
 
@@ -29,11 +33,11 @@ iterative refinement loops
 validation gates
 economic + legal grounding
 
-System Architecture
+### System Architecture
 
 The system is composed of six sequential phases:
 
-1. Generation Phase
+#### 1. Generation Phase
 
 Agents:
 
@@ -43,7 +47,7 @@ gapAnalystAgent
 
 Transforms raw input into structured business opportunities.
 
-2. Cultural Filter
+#### 2. Cultural Filter
 
 Agent:
 
@@ -51,7 +55,7 @@ culturalAgent
 
 Validates cultural fit and regional relevance.
 
-3. Validation Phase
+### 3. Validation Phase
 
 Agents:
 
@@ -64,7 +68,7 @@ Acts as a quality gate:
 idea critique
 persona alignment
 viability scoring
-4. Refinement Loop
+#### 4. Refinement Loop
 
 Agent:
 
@@ -72,7 +76,7 @@ refinementAgent
 
 Iteratively improves idea quality based on feedback signals.
 
-5. Economic Model
+#### 5. Economic Model
 
 Agents:
 
@@ -85,7 +89,8 @@ Evaluates:
 financial feasibility
 revenue models
 regulatory constraints
-6. Finalization
+
+#### 6. Finalization
 
 Agent:
 
@@ -108,26 +113,7 @@ TypeScript – core language
 Node.js ESM – runtime environment
 
 
-.
-├── agent.ts
-├── agents/
-│   ├── generation.agent.ts
-│   ├── market-researcher.agent.ts
-│   ├── gap-analyst.agent.ts
-│   ├── cultural.agent.ts
-│   ├── critic.agent.ts
-│   ├── persona.agent.ts
-│   ├── validation.agent.ts
-│   ├── refinement.agent.ts
-│   ├── economy.agent.ts
-│   ├── finance.agent.ts
-│   ├── legal.agent.ts
-│   └── finalization.agent.ts
-├── schemas/
-├── prompts/
-└── package.json
-
-Scripts
+### Scripts
 npm run dev     # adk web (development UI)
 npm run start   # run pipeline
 npm run test    # evaluation mode

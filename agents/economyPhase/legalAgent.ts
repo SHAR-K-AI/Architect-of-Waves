@@ -1,6 +1,7 @@
 import { LlmAgent } from '@google/adk';
 import { z } from 'zod';
 import {legalInstruction} from "../../prompts/instructions.js";
+import {COMMON_CONFIG} from "../../constants/index.js";
 
 export const LegalResultSchema = z.object({
     legalRisks: z.array(z.string()),
@@ -21,9 +22,8 @@ export const LegalResultSchema = z.object({
  * Аналізує правові обмеження та регуляції регіону.
  */
 export const legalAgent = new LlmAgent({
+    ...COMMON_CONFIG,
     name: 'legal_advisor',
-
-    model: 'gemini-2.5-flash',
 
     description: `
 Evaluates legal constraints, compliance requirements, and regulatory risks for a business idea.

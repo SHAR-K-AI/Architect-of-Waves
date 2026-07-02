@@ -8,10 +8,11 @@ import { validationPhase } from "./agents/validationPhase/index.js";
 import { refinementPhase } from "./agents/refinementPhase/index.js";
 import { economicPhase } from "./agents/economyPhase/index.js";
 import { finalizationPhase } from "./agents/finalizationPhase/index.js";
+import {COMMON_CONFIG} from "./constants/index.js";
 
 export const rootAgent = new LlmAgent({
+    ...COMMON_CONFIG,
     name: 'architect_of_waves_root',
-    model: 'gemini-2.5-flash',
     description: `Orchestrates a business evolution pipeline through discrete execution phases.`,
     instruction: `
 ${rootInstruction}
