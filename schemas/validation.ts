@@ -1,5 +1,37 @@
 import { z } from 'zod';
 
+export const ValidationSchema = z.object({
+    score: z.number().min(0).max(10),
+
+    verdict: z.enum([
+        'pass',
+        'refine',
+        'fail'
+    ]),
+
+    marketScore: z.number(),
+
+    productMarketFitScore: z.number(),
+
+    feasibilityScore: z.number(),
+
+    scalabilityScore: z.number(),
+
+    riskScore: z.number(),
+
+    confidence: z.number().min(0).max(1),
+
+    strengths: z.array(z.string()),
+
+    weaknesses: z.array(z.string()),
+
+    risks: z.array(z.string()),
+
+    recommendations: z.array(z.string()),
+
+    summary: z.string(),
+});
+
 export const IdeaCriticResultSchema = z.object({
     score: z.number(),
 

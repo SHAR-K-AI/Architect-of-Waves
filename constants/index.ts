@@ -1,5 +1,5 @@
 export const COMMON_CONFIG = Object.freeze({
-    model: 'gemini-2.5-flash',
+    model: 'gemini-3.5-flash',
     generateContentConfig: {
         httpOptions: {
             retryOptions: {
