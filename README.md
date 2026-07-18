@@ -135,8 +135,3 @@ Many unsuccessful products consume considerable amounts of time, capital, and hu
 Ultimately, Architect-of-Waves demonstrates how coordinated AI agents can evolve from simple conversational assistants into collaborative decision-support systems. As AI frameworks, reasoning models, and external integrations continue to mature, systems built on this architectural approach could become valuable assistants for entrepreneurs, helping them make better-informed strategic decisions, improve product quality, and deliver solutions that create greater value for both businesses and their customers.
 
 <img src="/public/images/res.png" alt="Technical Implementation" width="800"/>
-
-
-### License
-
-MIT (or your chosen license)
